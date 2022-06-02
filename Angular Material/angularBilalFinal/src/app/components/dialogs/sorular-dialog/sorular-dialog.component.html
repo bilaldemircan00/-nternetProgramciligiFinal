@@ -1,0 +1,35 @@
+<mat-toolbar color="primary" class="mat-elevation-z6">
+  <span>{{dialogBaslik}}</span>
+</mat-toolbar>
+<div class="container" *ngIf="islem!='Detay'">
+<form [formGroup]="frm">
+<mat-form-field appearance="outline">
+  <mat-label >Kategori Adı</mat-label>
+  <mat-select placeholder="Kategori Seçiniz" formControlName="kategori_id" required="" >
+    <mat-option [value]="kat.kategori_id" *ngFor="let kat of kategoriler">{{kat.kategori_adi}}</mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field appearance="outline">
+  <mat-label>Başlık</mat-label>
+  <input matInput placeholder="Başlık" formControlName="soru_baslik" required="">
+</mat-form-field>
+<mat-form-field appearance="outline">
+  <mat-label>Soru İçerik</mat-label>
+  <input matInput placeholder="Soru İçerik" formControlName="soru_icerik" required="">
+</mat-form-field>
+
+</form>
+<button mat-raised-button color="primary" (click)="dialogRef.close(frm.value)" [disabled]="frm.invalid" >Kaydet</button>&nbsp;
+<button mat-raised-button color="warn" (click)="dialogRef.close()" >İptal</button>&nbsp;
+</div>
+<p>&nbsp;</p>
+<div class="container" *ngIf="islem=='Detay'">
+
+  <h2>{{yeniKayit.soru_baslik}}</h2>
+  <div [innerHTML]="yeniKayit.soru_icerik | safeHtml" ></div>
+  <p>Bu soru {{yeniKayit.uye_kullanici_adi}} tarafından {{yeniKayit.soru_tarih | date:'dd.MM.yyyy HH:mm:ss' }} tarihinde yazılmıştır...</p>
+  <p>nbsp</p>
+  <button mat-raised-button color="warn" (click)="dialogRef.close()" >Kapat</button>&nbsp;
+</div>
+
+

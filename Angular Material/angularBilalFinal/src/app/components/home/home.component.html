@@ -1,0 +1,21 @@
+
+<div class="container">
+    <h2 style="text-align: center;">SON EKLENEN SORULAR</h2>
+    <hr>
+    <mat-card class="example-card" style="margin-bottom:20px;" *ngFor="let sorular of sorular" >
+        <mat-card-title style="text-align:center;">{{sorular.kategori_adi}}</mat-card-title>
+        <mat-card-subtitle style="text-align:center;">{{sorular.soru_tarih | date:'dd.MM.yyyy HH:mm:ss'}}</mat-card-subtitle>
+        <mat-card-content>
+          <p style="text-align:center;">{{sorular.soru_icerik}}</p>
+          <p style="text-align:center;">Kategori:{{sorular.kategori_adi}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button style="background-color:#3F51B5 ;"><a style="text-decoration: none; color: black;" href="#" [routerLink]="['/sorular/',sorular.soru_id]"> Soruyu oku</a></button>
+          
+        </mat-card-actions>
+        
+      </mat-card>
+      <p>&nbsp;&nbsp;&nbsp;</p>
+</div>
+
+  

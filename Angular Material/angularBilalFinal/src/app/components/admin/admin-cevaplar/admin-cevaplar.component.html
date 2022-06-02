@@ -1,0 +1,77 @@
+<div class="container">
+  <h2>Cevaplar</h2>
+  <button mat-fab  matTooltip="Cevap Ekle" color="primary" (click)="Ekle()">
+    <mat-icon aria-label="">add</mat-icon>
+  </button>
+  <p>&nbsp;</p>
+
+  
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8"  >
+    <ng-container matColumnDef="cevap_icerik"  >
+      <mat-header-cell *matHeaderCellDef> Cevap İçerik
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit">{{kayit.cevap_icerik}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="uye_id"  >
+      <mat-header-cell *matHeaderCellDef> Üye ID
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit">{{kayit.uye_id}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="soru_id"  >
+      <mat-header-cell *matHeaderCellDef> Soru ID
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit">{{kayit.soru_id}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="SoruBaslik"  >
+      <mat-header-cell *matHeaderCellDef> Soru Başlık
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit">{{kayit.KullaniciAdi}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="KullaniciAdi"  >
+      <mat-header-cell *matHeaderCellDef> Kullanıcı Adı
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit">{{kayit.KullaniciAdi}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="tarih"  >
+      <mat-header-cell *matHeaderCellDef> Cevap Tarih
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit">{{kayit.tarih | date:'dd.MM.yyyy HH:mm:ss'}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="islemler"  >
+      <mat-header-cell *matHeaderCellDef> İşlemler
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit">
+
+
+        
+
+      </mat-cell>
+    </ng-container>
+
+
+
+
+    <ng-container matColumnDef="Detay">
+      <mat-header-cell *matHeaderCellDef> İşlemler
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit"> 
+
+        <button mat-icon-button color="primary" matTooltip="Cevap Önizle" (click)="Detay(kayit)">
+          <mat-icon aria-label="label">search</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" matTooltip="Cevap Düzenle" (click)="Duzenle(kayit)">
+          <mat-icon aria-label="label">edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" matTooltip="Cevap Sil" (click)="Sil(kayit)">
+          <mat-icon aria-label="label">delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator 
+        [pageSizeOptions]="[5, 10, 25, 100]">
+  </mat-paginator>
+</div>

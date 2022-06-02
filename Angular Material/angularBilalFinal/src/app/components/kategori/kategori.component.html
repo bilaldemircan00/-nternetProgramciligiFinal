@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>{{kat.kategori_adi}} Kategorisi Soruları.</h1>
+  <h2 style="color: red;" *ngIf="sorular?.length==0">Henüz bu kategoriye soru eklenmedi.</h2>
+  <div *ngFor="let sorular of sorular">
+      <h2 >{{sorular.soru_baslik}}</h2>
+      <p>
+          <b>Kategori:</b>{{sorular.kategori_adi}}&nbsp;&nbsp;
+          <b>Tarih:</b>{{sorular.soru_tarih}}&nbsp;&nbsp;
+          <b>Yazan:</b>{{sorular.uye_kullanici_adi}}&nbsp;&nbsp;
+          <a href="#" [routerLink]="['/sorular/',sorular.soru_id]">Soruyu Oku...</a>
+      
+      
+      
+      </p>
+  </div>
+</div>

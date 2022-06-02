@@ -1,0 +1,34 @@
+<mat-toolbar color="primary" class="mat-elevation-z6">
+    <span>{{dialogBaslik}}</span>
+  </mat-toolbar>
+  <div class="container">
+    <form [formGroup]="frm">
+  <mat-form-field appearance="outline">
+    <mat-label>Cevap İçerik</mat-label>
+    <input matInput placeholder="Cevap İcerik" name="cevap_icerik" formControlName="cevap_icerik" required>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Uye Id</mat-label>
+    <input matInput placeholder="Uye Id" name="uye_id" formControlName="uye_id" required>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Soru Id</mat-label>
+    <input matInput placeholder="Soru Id" name="soru_id" formControlName="soru_id" required>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Kullanici Adı</mat-label>
+    <input matInput placeholder="Kullanıcı Adı" name="kullanici_adi" formControlName="kullanici_adi" required>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Soru Başlık</mat-label>
+    <input matInput placeholder="Soru Baslik" name="soru_baslik" formControlName="soru_baslik" required>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Tarih</mat-label>
+    <input matInput placeholder="Tarih" name="tarih" formControlName="tarih" required>
+  </mat-form-field>
+  <p> &nbsp;&nbsp;</p>
+  <button mat-raised-button color="primary" (click)="dialogRef.close(frm.value)" [disabled]="frm.invalid" >Kaydet</button>&nbsp;
+  <button mat-raised-button color="warn" (click)="dialogRef.close()" >İptal</button>&nbsp;
+    </form>
+  </div>
